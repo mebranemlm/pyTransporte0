@@ -17,11 +17,26 @@
 <table border="1" align="center" style="border-collapse:collapse;">
 <tr><th colspan="4" style="padding:10px;">BÚSQUEDA DE TRANSPORTES</th></tr>
 <tr>
-<td colspan="2">
+<td colspan="1">
 <h:outputText value="Ingresar descripción del transporte"></h:outputText>
 </td>
 <td colspan="1">
 <h:inputText value="#{TransporteBean.descTransporte}"></h:inputText>
+</td>
+<!-- Había un código de más en esta parte -->
+<td>
+<!-- 	Cambiamos ciertos parámetros -->
+<!-- 	El FormBean.option lo cambiamos por una variable que crearemos en el TransporteBean, le llamaremos -->
+<!-- 	"TransporteBean.opcion" (aun no existe, recien la crearemos)  -->
+<!-- El layout lo cambiamos por "lineDirection" -->
+		<p:selectOneRadio id="customRadio" value="#{TransporteBean.opcion}" 
+		layout="lineDirection">
+		
+<!-- 		Las opciones que usaremos son "Buscar por descripción" (1) y "Buscar por tipo de Transporte" (2) -->
+			
+			<f:selectItem itemLabel="Buscar por descripción" itemValue="1" /> 
+			<f:selectItem itemLabel="Buscar por tipo de Transporte" itemValue="2" />
+		</p:selectOneRadio>
 </td>
 <td>
 <h:commandButton value="Buscar" actionListener="#{TransporteBean.listar_por_descripcion}" action="TRANSPORTE_BUSCAR"/>

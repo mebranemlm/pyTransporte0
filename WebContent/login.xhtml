@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+<title>Login</title>
+</h:head>
+
+<h:body>
+
+<h1>Iniciar Sesión</h1>
+
+<h:form>
+<table>
+<tr>
+	<th>
+		<h:outputText value="Usuario: "></h:outputText>
+	</th>
+	<td>
+<!-- 	Llamamos a la función de validaUsuario con el "validator" -->
+<!-- Le indicamos un id para que lo reconzca el mensaje -->
+		<h:inputText id="usuario" value="#{UsuarioBean.usuario}" validator="#{UsuarioBean.validaUsuario}"></h:inputText>
+	</td>
+</tr>
+<tr>
+	<th>
+		<h:outputText value="Clave:"></h:outputText>
+	</th>
+	<td>
+		<h:inputSecret value="#{UsuarioBean.clave}"></h:inputSecret>
+	</td>
+</tr>
+
+<tr>
+	<td colspan="2">
+	
+		<p:commandButton value="Acceder" action="#{UsuarioBean.validar}" update="@form" onclick="start()" ></p:commandButton>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+<!-- 	Le ponemos en el "for" el mismo "id" que le pusimos arriba. Aquí se mostrará el mensaje. -->
+<!-- Ahora ejecutamos y probamos -->
+	<p:messages for="usuario"></p:messages>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<p:progressBar widgetVar="pb" />
+	</td>
+</tr>
+
+</table>
+</h:form>
+
+<script type="text/javascript">
+var i=0;
+
+function start() {
+this.progressInterval = setInterval(function(){
+		var val=PF('pb').getValue();
+		if(val==0){
+			i++;
+		}
+		console.log(val);
+		if(val>=100 || i>1){
+			cancel();
+			i=0;
+		}else{
+			PF('pb').setValue(val + 50);
+		}
+	}, 2000);
+}
+function cancel() {
+		clearInterval(this.progressInterval);
+		PF('pb').setValue(0);
+}
+</script>
+
+
+</h:body>
+
+</html>
