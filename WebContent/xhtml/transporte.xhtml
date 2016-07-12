@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+<title>
+<h:outputText value="Nuevo Transporte" rendered="#{!TransporteBean.sw_edit}"></h:outputText>
+<h:outputText value="Editar Transporte" rendered="#{TransporteBean.sw_edit}"></h:outputText>
+</title>
+</h:head>
+<h:body>
+
+<h1>
+	<h:outputText value="Nuevo Transporte" rendered="#{!TransporteBean.sw_edit}"></h:outputText>
+	<h:outputText value="Editar Transporte" rendered="#{TransporteBean.sw_edit}"></h:outputText>
+</h1>
+
+<center>
+<h:form>
+<table>
+  <tr>
+    <th>ID: </th>
+    <td>
+    	<h:inputText value="#{TransporteBean.idTransporte}"></h:inputText>
+    </td>
+  </tr>
+    <tr>
+    <th>DESCRIPCIÓN: </th>
+    <td>
+    	<h:inputText value="#{TransporteBean.descTransporte}"></h:inputText>
+    </td>
+  </tr>
+    <tr>
+    <th>TIPO: </th>
+    <td>
+    	<h:selectOneMenu value="#{TransporteBean.idTipoTransporte.idTipoTransporte}" var="cboTipoTransporte" class="ui-selectonemenu-label ui-inputfield ui-corner-all">
+				<f:selectItem itemValue="-1" itemLabel="-Seleccionar Tipo Transporte-" />
+            	<f:selectItems value="#{TransporteBean.listaTipoTransporte}" var="tiposTransporte" itemValue="#{tiposTransporte.idTipoTransporte}" itemLabel="#{tiposTransporte.descTipoTransporte}"  />
+		</h:selectOneMenu>
+    </td>
+  </tr>
+    <tr>
+    <th>COSTO: </th>
+    <td>
+    	<h:inputText value="#{TransporteBean.costo}"></h:inputText>
+    </td>
+  </tr>
+    <tr>
+    <th>STOCK:</th>
+    <td>
+    	<h:inputText value="#{TransporteBean.stock}"></h:inputText>
+    </td>
+  </tr>
+    <tr>
+    <th>MODELO:</th>
+    <td>
+    	<h:selectOneMenu value="#{TransporteBean.idModelo.idModelo}" var="cboModelo" class="ui-selectonemenu-label ui-inputfield ui-corner-all">
+				<f:selectItem itemValue="-1" itemLabel="-Seleccionar Modelo-" />
+            	<f:selectItems value="#{TransporteBean.listaModelo}" var="modelos" itemValue="#{modelos.idModelo}" itemLabel="#{modelos.descModelo}"  />
+		</h:selectOneMenu>
+    </td>
+  </tr>
+    <tr>
+    <th>MARCA: </th>
+    <td>
+    	<h:selectOneMenu value="#{TransporteBean.idMarca.idMarca}" var="cboMarca" class="ui-selectonemenu-label ui-inputfield ui-corner-all">
+				<f:selectItem itemValue="-1" itemLabel="-Seleccionar Marca-" />
+            	<f:selectItems value="#{TransporteBean.listaMarca}" var="marcas" itemValue="#{marcas.idMarca}" itemLabel="#{marcas.descripcion}"  />
+		</h:selectOneMenu>
+    </td>
+  </tr>
+    <tr>
+    <th>FECHA REGISTRO: </th>
+    <td>
+    	<p:calendar value="#{TransporteBean.fechaRegistro}" mode="popup"
+						popupIconOnly="true" showOn="button" pattern="dd/MM/yyyy">
+		</p:calendar>
+    </td>
+  </tr>
+  
+  	<tr align="center">
+		<td colspan="2">
+			<p:commandButton value="Agregar"
+				actionListener="#{TransporteBean.agregar}" action="PRINCIPAL"
+				rendered="#{!TransporteBean.sw_edit}" icon="ui-icon-disk" />
+				
+			<p:commandButton value="Modificar"
+				actionListener="#{TransporteBean.editar}" action="PRINCIPAL"
+				rendered="#{TransporteBean.sw_edit}" />
+		</td>
+	</tr>
+</table>
+</h:form>
+<h:form>
+	<h:commandLink value="Regresar al Inicio" action="PRINCIPAL"></h:commandLink>
+</h:form>
+
+</center>
+</h:body>
+</html>
