@@ -53,9 +53,6 @@ public class TransporteBean {
 	private int fila_seleccionada;
 
 	
-	//Opcion del RadioButton
-	//Para que haya una opción por defecto le ponemos 1
-	private String opcion ="1";
 	
 	public void llenar_combo_box() throws Exception{
 		listaMarca=oMarcaDAOI.leer();
@@ -78,19 +75,8 @@ public class TransporteBean {
 	public void listar_por_descripcion() throws Exception{
 		Transporte oTransporte= new Transporte();
 		
-		System.out.println(opcion);
 		oTransporte.setDescTransporte(getDescTransporte());
-		
-		//  opcion=="1" ---> X
-		//  opcion.equals("1") ---> Ok
-		if(opcion.equals("1")){
-			listaTransporte=oTransporteDAOI.buscar(oTransporte);
-		}else if(opcion.equals("2")){
-			listaTransporte=oTransporteDAOI.buscarPorTipo(oTransporte);
-		}
-		
-		//En esta parte valida: si el resultado del RadioButton es 1, lista normal.
-		//Si no es 1, lista por Tipo
+		listaTransporte=oTransporteDAOI.buscar(oTransporte);
 		listaTransporte_size=listaTransporte.size();
 	}
 	
@@ -126,15 +112,7 @@ public class TransporteBean {
 		Transporte oTransporte= new Transporte();
 		oTransporte.setIdTransporte(fila_seleccionada);
 		oTransporteDAOI.eliminar(oTransporte);
-		//Eliminamos la función Limpiar en el TransporteBean -> borrar()
-		//limpiar();
-		
-		//Llamamos a la función de listar/buscar de TransporteBean
-		
-		listar_por_descripcion();
-		
-		//Eso es todo lo que hacía falta. Ahora cada vez que eliminemos algo
-		//se realizará la búsqueda automáticamente y se actualizará la lista de Transportes
+		limpiar();
 	}
 	
 	public void limpiar(){
@@ -156,17 +134,6 @@ public class TransporteBean {
 		fila_seleccionada=Integer.parseInt(fila);
 	}
 	
-	
-	
-	
-	public String getOpcion() {
-		return opcion;
-	}
-
-	public void setOpcion(String opcion) {
-		this.opcion = opcion;
-	}
-
 	public int getIdTransporte() {
 		return idTransporte;
 	}

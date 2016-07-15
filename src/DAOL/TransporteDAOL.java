@@ -20,9 +20,6 @@ public interface TransporteDAOL {
 	//BUSCAR -> Mando: oTransporte Recupero: List<oTransporte>
 	public abstract List<Transporte> buscar(Transporte obj) throws Exception;
 	
-	//BUSCAR -> Mando: oTransporte Recupero: List<oTransporte>
-		public abstract List<Transporte> buscarPorTipo(Transporte obj) throws Exception;
-	
 	//LEER -> Mando: -- Recupero: List<oTransporte>
 	public abstract List<Transporte> leer() throws Exception;
 }

@@ -7,43 +7,31 @@
     version="2.0">
     
     <managed-bean>
-    <managed-bean-name>TransporteBean</managed-bean-name>
-    <managed-bean-class>bean.TransporteBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    
-<!--     Indicamos el Usuario Bean -->
-    
-    <managed-bean>
     <managed-bean-name>UsuarioBean</managed-bean-name>
     <managed-bean-class>bean.UsuarioBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
     
-    <navigation-rule>
+    <managed-bean>
+    <managed-bean-name>TransporteBean</managed-bean-name>
+    <managed-bean-class>bean.TransporteBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
     
-<!--  Indicamos a dónde nos llevará el "ERROR" y "EXITO" respectivamente. -->
+      <navigation-rule>
     
-    
-      <navigation-case>
-    <from-outcome>EXITO</from-outcome>
-    <to-view-id>/principal.xhtml</to-view-id>
-    </navigation-case>
-    
-    
-      <navigation-case>
-    <from-outcome>ERROR</from-outcome>
-    <to-view-id>/xhtml/error.xhtml</to-view-id>
-    </navigation-case>
-    
-<!--     El principal.xhtml ya existe, el error.xhtml aún no, recién lo crearemos -->
-    
-    
-    <navigation-case>
+     <navigation-case>
 <!--     Actions de los botones o links -->
     <from-outcome>PRINCIPAL</from-outcome> 
     <to-view-id>/principal.xhtml</to-view-id>
     </navigation-case>
+    
+    <navigation-case>
+    <from-outcome>ERROR</from-outcome>
+    <to-view-id>/error.xhtml</to-view-id>
+    </navigation-case>
+    
+   
     
     <navigation-case>
     <from-outcome>TRANSPORTE</from-outcome>

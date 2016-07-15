@@ -126,47 +126,4 @@ public class TransporteDAOI implements TransporteDAOL {
 		return lista;
 	}
 
-	@Override
-	public List<Transporte> buscarPorTipo(Transporte obj) throws Exception {
-		
-		//Abro conexion
-				cn.abrir();
-				
-				//Creo el parámetro
-				String descTransporte=obj.getDescTransporte();
-				descTransporte='%'+descTransporte.toLowerCase() +'%';
-				
-				//System.out.println("Descripción: "+descTransporte);
-				//Creo sentencia
-				String sentencia= "select t, "
-						+"t.idTipoTransporte.idTipoTransporte, "
-						+"t.idMarca.idMarca, "
-						+"t.idModelo.idModelo "
-						+"from Transporte t "
-						//CAMBIAMOS ESTA PARTE (ya no buscamos por descripción sino por tipo):
-						+"where lower(t.idTipoTransporte.descTipoTransporte) like :descTransporte";
-				
-				//Creo query
-				Query q= cn.em.createQuery(sentencia);
-				
-				//Envío el parámetro al query
-				q.setParameter("descTransporte", descTransporte);
-				
-				//Ejecuto el query (me devuelve una lista array)
-				List<Object[]> lista_objetos =q.getResultList();
-
-				//Creo lista Transporte vacía
-				List<Transporte> lista = new ArrayList<Transporte>();
-				
-				//Convierto lista de arrays en lista de transportes
-				//Lleno la lista vacía con los transportes de la lista array
-				for(Object objs[]: lista_objetos){
-					Transporte transporte=(Transporte) objs[0];
-					lista.add(transporte);
-				}
-
-				//Retorno la lista de transportes
-				return lista;
-	}
-
 }

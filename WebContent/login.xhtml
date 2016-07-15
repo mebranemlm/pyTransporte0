@@ -6,55 +6,43 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
+
+
 <h:head>
-<title>Login</title>
+<title>login</title>
 </h:head>
-
-<h:body>
-
-<h1>Iniciar Sesión</h1>
-
+<h:body  >
+<h1 align="center" >Iniciar Sesion</h1>
 <h:form>
-<table>
+<table align="center">
 <tr>
-	<th>
-		<h:outputText value="Usuario: "></h:outputText>
-	</th>
-	<td>
-<!-- 	Llamamos a la función de validaUsuario con el "validator" -->
-<!-- Le indicamos un id para que lo reconzca el mensaje -->
-		<h:inputText id="usuario" value="#{UsuarioBean.usuario}" validator="#{UsuarioBean.validaUsuario}"></h:inputText>
-	</td>
+<!-- para ingresar un mesnaje de error se aumenta el valitor y un id con el nombre y luego mesagess --> 
+<th><h:outputText value="Usuario"></h:outputText> </th>
+<td><h:inputText id="usuario" value="#{UsuarioBean.usuario}" validator="#{UsuarioBean.validaUsuario}"></h:inputText> </td>
 </tr>
 <tr>
-	<th>
-		<h:outputText value="Clave:"></h:outputText>
-	</th>
-	<td>
-		<h:inputSecret value="#{UsuarioBean.clave}"></h:inputSecret>
-	</td>
+<th><h:outputText value="Clave"></h:outputText> </th>
+<td><h:inputSecret value="#{UsuarioBean.clave}"></h:inputSecret></td>
 </tr>
 
 <tr>
-	<td colspan="2">
-	
-		<p:commandButton value="Acceder" action="#{UsuarioBean.validar}" update="@form" onclick="start()" ></p:commandButton>
-	</td>
-</tr>
-<tr>
-	<td colspan="2">
-<!-- 	Le ponemos en el "for" el mismo "id" que le pusimos arriba. Aquí se mostrará el mensaje. -->
-<!-- Ahora ejecutamos y probamos -->
-	<p:messages for="usuario"></p:messages>
-	</td>
-</tr>
-<tr>
-	<td colspan="2">
-		<p:progressBar widgetVar="pb" />
-	</td>
+<td colspan="2">
+<p:commandButton value="Iniciar" action="#{UsuarioBean.validar}" update="@form" onclick="start()"></p:commandButton>
+</td>
 </tr>
 
+<!-- mensajesssss -->
+<tr>
+<td colspan="3">
+<p:messages for="usuario"></p:messages>
+</td>
+</tr>
+
+<tr>
+<td colspan="2">
+	<p:progressBar widgetVar="pb"></p:progressBar>
+</td>
+</tr>
 </table>
 </h:form>
 
@@ -82,7 +70,5 @@ function cancel() {
 }
 </script>
 
-
 </h:body>
-
 </html>

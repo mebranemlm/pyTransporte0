@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14677608570310" configfile="/pyTransporte0/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="562" id="pf14682983493900" outlinks="pf14682983493901 pf14682983493902 pf14682983493903 pf14682984566097 pf14682984566098" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="338" y="178" id="pf14682983493904" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14682983493901 pf14682984566097" path="/principal.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/transporte.xhtml" x="338" y="562" id="pf14682983493905" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14682983493902" path="/xhtml/transporte.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/transporte_buscar.xhtml" x="338" y="946" id="pf14682983493916" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14682983493903" path="/xhtml/transporte_buscar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="xhtml/error.xhtml" id="pf14682984566109" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14682984566098" path="/xhtml/error.xhtml"/>
-  <links id="pf14682983493901" target="pf14682983493904" source="pf14682983493900" outcome="EXITO"/>
-  <links id="pf14682983493902" target="pf14682983493905" source="pf14682983493900" outcome="TRANSPORTE"/>
-  <links id="pf14682983493903" target="pf14682983493916" source="pf14682983493900" outcome="TRANSPORTE_BUSCAR"/>
-  <links id="pf14682984566097" target="pf14682983493904" source="pf14682983493900" outcome="PRINCIPAL"/>
-  <links id="pf14682984566098" target="pf14682984566109" source="pf14682983493900" outcome="ERROR"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="754" id="pf14685145909150" outlinks="pf14685145909151 pf14685145909152 pf14685145909153 pf14685163206319" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="principal.xhtml" x="338" y="178" id="pf14685145909155" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14685145909151" path="/principal.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/transporte.xhtml" x="338" y="562" id="pf14685145909156" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14685145909152" path="/xhtml/transporte.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/transporte_buscar.xhtml" x="338" y="946" id="pf14685145909157" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14685145909153" path="/xhtml/transporte_buscar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="xhtml/error.xhtml" x="122" y="1234" id="pf14685145909158" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="/xhtml/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="338" y="1330" id="pf146851632063110" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14685163206319" path="/error.xhtml"/>
+  <links id="pf14685145909151" target="pf14685145909155" source="pf14685145909150" outcome="PRINCIPAL"/>
+  <links id="pf14685145909152" target="pf14685145909156" source="pf14685145909150" outcome="TRANSPORTE"/>
+  <links id="pf14685145909153" target="pf14685145909157" source="pf14685145909150" outcome="TRANSPORTE_BUSCAR"/>
+  <links id="pf14685163206319" target="pf146851632063110" source="pf14685145909150" outcome="ERROR"/>
 </pageflow:Pageflow>
